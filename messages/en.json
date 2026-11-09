@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "knowcard",
+    "description": "Flip a knowledge point over and keep images, video, blogs, documents, audio, and files on the back."
+  },
+  "nav": {
+    "brand": "knowcard",
+    "cards": "Cards",
+    "skip": "Skip to content"
+  },
+  "locale": {
+    "switchToEn": "EN",
+    "switchToZh": "中文",
+    "label": "Change language"
+  },
+  "home": {
+    "kicker": "Multimodal knowledge cards",
+    "title": "Turn a knowledge point over.",
+    "lead": "The front holds the definition. The back gathers images, video, blogs, documents, audio, and files.",
+    "openSample": "Open sample: {title}",
+    "browse": "Browse cards"
+  },
+  "list": {
+    "title": "Cards",
+    "lead": "Each card is one knowledge point. Open it and flip to the back on the same page.",
+    "emptyTitle": "No cards yet",
+    "emptyBody": "Create one, then add https links on the back.",
+    "resources": "{count} resources",
+    "createTitle": "New card",
+    "createLead": "A title and a definition are enough. Add resources on the back.",
+    "titleLabel": "Title",
+    "definitionLabel": "Definition",
+    "createSubmit": "Create",
+    "saving": "Saving…"
+  },
+  "studio": {
+    "frontKicker": "Knowledge point",
+    "flipToBack": "Flip to back",
+    "flipHint": "Space or F to flip",
+    "backKicker": "Multimodal resources",
+    "ops": "Ops",
+    "opsLabel": "Card actions",
+    "addLink": "Add link",
+    "editFront": "Edit front",
+    "flipToFront": "Flip to front",
+    "openExternal": "Open in a new tab",
+    "edit": "Edit",
+    "delete": "Delete",
+    "emptyTitle": "Nothing in this category",
+    "emptyBody": "Add an https link. Files are not uploaded here.",
+    "emptyAction": "Add link",
+    "httpsHint": "Only https links are accepted. Nothing is uploaded.",
+    "categoriesLabel": "Resource categories",
+    "faceFront": "Showing the front",
+    "faceBack": "Showing the back",
+    "addTitle": "Add a link",
+    "editResourceTitle": "Edit link",
+    "editFrontTitle": "Edit the front",
+    "deleteTitle": "Delete resource",
+    "deleteBody": "Remove this link from the card. The page it points to stays where it is.",
+    "confirmDelete": "Delete",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "saving": "Saving…",
+    "fields": {
+      "title": "Title",
+      "definition": "Definition",
+      "url": "Link",
+      "note": "Note",
+      "source": "Source",
+      "category": "Category",
+      "optional": "optional"
+    },
+    "categories": {
+      "image": "Image",
+      "video": "Video",
+      "blog": "Blog",
+      "document": "Document",
+      "audio": "Audio",
+      "attachment": "Attachment"
+    },
+    "categoriesShort": {
+      "image": "Image",
+      "video": "Video",
+      "blog": "Blog",
+      "document": "Docs",
+      "audio": "Audio",
+      "attachment": "Files"
+    },
+    "errors": {
+      "https_only": "Use an https link.",
+      "invalid_url": "That is not a valid link.",
+      "missing_title": "Add a title.",
+      "missing_definition": "Add a definition.",
+      "not_found": "That card or resource could not be found.",
+      "invalid_category": "That category is not valid.",
+      "too_long": "That is too long.",
+      "unknown": "Could not save. Try again."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This card may be gone, or the address is wrong.",
+    "back": "Back to cards"
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "photosynthesis",
+    "title": "光合作用",
+    "definition": "绿色植物和一些藻类用叶绿素吸收光能，把二氧化碳和水变成糖，并放出氧气。光反应在类囊体上进行，卡尔文循环在基质里把碳固定下来。英文叫做 photosynthesis。",
+    "resources": [
+      {
+        "id": "ps-image",
+        "category": "image",
+        "title": "光合作用总览图",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Simple_photosynthesis_overview.svg",
+        "source": "Wikimedia Commons",
+        "note": "一张把光、水和二氧化碳画进叶片的示意图。"
+      },
+      {
+        "id": "ps-video",
+        "category": "video",
+        "title": "Crash Course：光合作用（第 8 集）",
+        "url": "https://www.youtube.com/watch?v=sQK3Yr4Sc_k",
+        "source": "YouTube / Crash Course",
+        "note": "从叶绿体结构讲到光反应和卡尔文循环。"
+      },
+      {
+        "id": "ps-blog",
+        "category": "blog",
+        "title": "Khan Academy：光合作用导读",
+        "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/a/intro-to-photosynthesis",
+        "source": "Khan Academy",
+        "note": "短文，适合先建立整体印象。"
+      },
+      {
+        "id": "ps-document",
+        "category": "document",
+        "title": "OpenStax Biology 2e · 8.1",
+        "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+        "source": "OpenStax",
+        "note": "教材章节，可顺着小节往下读。"
+      },
+      {
+        "id": "ps-audio",
+        "category": "audio",
+        "title": "photosynthesis 的英式读音",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/En-uk-photosynthesis.ogg",
+        "source": "Wikimedia Commons",
+        "note": "一段很短的朗读，用来核对英文读音。"
+      },
+      {
+        "id": "ps-attachment",
+        "category": "attachment",
+        "title": "HHMI 教学讲义（PDF）",
+        "url": "https://www.biointeractive.org/sites/default/files/media/file/2025-05/CrashCourseEp28-Educator-film.pdf",
+        "source": "BioInteractive",
+        "note": "可下载的教师讲义，对应一集光合作用影片。"
+      }
+    ]
+  }
+]
