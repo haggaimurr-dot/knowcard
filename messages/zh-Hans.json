@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "knowcard",
+    "description": "把一个知识点翻到背面，收齐图片、视频、博客、文档、音频和附件。"
+  },
+  "nav": {
+    "brand": "knowcard",
+    "cards": "卡片",
+    "skip": "跳到内容"
+  },
+  "locale": {
+    "switchToEn": "EN",
+    "switchToZh": "中文",
+    "label": "切换语言"
+  },
+  "home": {
+    "kicker": "多模态知识点卡",
+    "title": "把一个知识点翻过来。",
+    "lead": "正面写下定义，背面按类收齐图片、视频、博客、文档、音频和附件。",
+    "openSample": "打开示例：{title}",
+    "browse": "查看全部卡片"
+  },
+  "list": {
+    "title": "卡片",
+    "lead": "每张卡是一个知识点。点进去，在同一页翻到背面。",
+    "emptyTitle": "还没有卡片",
+    "emptyBody": "先创建一张，再往背面加 https 外链。",
+    "resources": "{count} 条资源",
+    "createTitle": "新建卡片",
+    "createLead": "只需要标题和释义。资源在卡片背面再加。",
+    "titleLabel": "标题",
+    "definitionLabel": "释义",
+    "createSubmit": "创建",
+    "saving": "保存中…"
+  },
+  "studio": {
+    "frontKicker": "知识点",
+    "flipToBack": "翻到背面",
+    "flipHint": "空格或 F 翻转",
+    "backKicker": "多模态资源",
+    "ops": "操作",
+    "opsLabel": "卡片操作",
+    "addLink": "添加外链",
+    "editFront": "编辑正面",
+    "flipToFront": "翻回正面",
+    "openExternal": "新标签页打开",
+    "edit": "编辑",
+    "delete": "删除",
+    "emptyTitle": "这一类还是空的",
+    "emptyBody": "添加一条 https 外链。文件不会上传到这里。",
+    "emptyAction": "添加外链",
+    "httpsHint": "只接受 https 链接，不会上传文件。",
+    "categoriesLabel": "资源类别",
+    "faceFront": "现在是正面",
+    "faceBack": "现在是背面",
+    "addTitle": "添加外链",
+    "editResourceTitle": "编辑外链",
+    "editFrontTitle": "编辑正面",
+    "deleteTitle": "删除资源",
+    "deleteBody": "从这张卡移除这条外链。原来的网页还在。",
+    "confirmDelete": "删除",
+    "cancel": "取消",
+    "close": "关闭",
+    "save": "保存",
+    "saving": "保存中…",
+    "fields": {
+      "title": "标题",
+      "definition": "释义",
+      "url": "链接",
+      "note": "备注",
+      "source": "来源",
+      "category": "类别",
+      "optional": "可选"
+    },
+    "categories": {
+      "image": "图片",
+      "video": "视频",
+      "blog": "博客",
+      "document": "文档",
+      "audio": "音频",
+      "attachment": "附件"
+    },
+    "categoriesShort": {
+      "image": "图片",
+      "video": "视频",
+      "blog": "博客",
+      "document": "文档",
+      "audio": "音频",
+      "attachment": "附件"
+    },
+    "errors": {
+      "https_only": "请使用 https 链接。",
+      "invalid_url": "这不是一个有效的链接。",
+      "missing_title": "请填写标题。",
+      "missing_definition": "请填写释义。",
+      "not_found": "找不到这张卡或这条资源。",
+      "invalid_category": "类别无效。",
+      "too_long": "内容太长了。",
+      "unknown": "没有保存成功，请再试一次。"
+    }
+  },
+  "notFound": {
+    "title": "没有这一页",
+    "body": "这张卡可能被拿走了，或者地址写错了。",
+    "back": "回到卡片列表"
+  }
+}
