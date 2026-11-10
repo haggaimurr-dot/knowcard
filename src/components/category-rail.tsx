@@ -23,32 +23,40 @@ export function CategoryRail({
   const vertical = orientation === "vertical";
 
   return (
-    <div className={className} role="tablist" aria-orientation={orientation} aria-label={t("categoriesLabel")}>
-      <div className={vertical ? "flex h-full flex-col" : "flex gap-2 overflow-x-auto pb-1"}>
-        {RESOURCE_CATEGORIES.map((category) => {
-          const selected = category === value;
-          return (
-            <button
-              key={category}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => onChange(category)}
-              className={
-                vertical
-                  ? `flex flex-1 flex-col items-center justify-center gap-1 px-1 text-[11px] ${selected ? "bg-pine text-white" : "text-ink hover:bg-black/5"}`
-                  : `flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm ${selected ? "border-pine bg-pine text-white" : "border-line bg-white/60 text-ink"}`
-              }
-            >
-              <CategoryIcon category={category} className={vertical ? "size-4" : "size-3.5"} />
-              <span>{t(`categoriesShort.${category}`)}</span>
-              <span className={vertical ? "text-[10px] opacity-80" : "text-xs opacity-80"}>
-                {counts[category]}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+    <div
+      className={
+        vertical
+          ? `flex-col ${className ?? ""}`
+          : `category-rail-horizontal flex min-w-0 gap-2 overflow-x-auto ${className ?? ""}`
+      }
+      role="tablist"
+      aria-orientation={orientation}
+      aria-label={t("categoriesLabel")}
+      onClick={(event) => event.stopPropagation()}
+    >
+      {RESOURCE_CATEGORIES.map((category) => {
+        const selected = category === value;
+        return (
+          <button
+            key={category}
+            type="button"
+            role="tab"
+            aria-selected={selected}
+            onClick={() => onChange(category)}
+            className={
+              vertical
+                ? `category-tab${selected ? " category-tab-active" : ""}`
+                : `category-chip${selected ? " category-chip-active" : ""}`
+            }
+          >
+            <CategoryIcon category={category} className={vertical ? "size-4" : "size-3.5"} />
+            <span>{t(`categoriesShort.${category}`)}</span>
+            <span className={vertical ? "text-[10px] tabular-nums text-pine/70" : "text-xs tabular-nums opacity-80"}>
+              {counts[category]}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 }
