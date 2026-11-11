@@ -5,7 +5,7 @@
   },
   "nav": {
     "brand": "knowcard",
-    "cards": "卡片",
+    "cards": "卡片库",
     "skip": "跳到内容"
   },
   "locale": {
@@ -18,7 +18,7 @@
     "title": "把一个知识点翻过来。",
     "lead": "正面写下定义，背面按类收齐图片、视频、博客、文档、音频和附件。",
     "openSample": "打开示例：{title}",
-    "browse": "查看全部卡片"
+    "browse": "进入卡片库"
   },
   "list": {
     "title": "卡片",
@@ -31,7 +31,68 @@
     "titleLabel": "标题",
     "definitionLabel": "释义",
     "createSubmit": "创建",
-    "saving": "保存中…"
+    "saving": "保存中…",
+    "groupLabel": "组",
+    "chooseGroup": "选择一个组"
+  },
+  "library": {
+    "title": "卡片库",
+    "lead": "按分类和组整理知识点。进入一个组，再打开卡片。",
+    "createCategory": "新建分类",
+    "allCards": "全部卡片",
+    "createGroup": "新建组",
+    "more": "更多",
+    "rename": "重命名",
+    "delete": "删除",
+    "emptyTitle": "还没有分类",
+    "emptyBody": "先新建一个分类，再在里面建组。",
+    "categoryCount": "{groups} 个组 · {cards} 张卡",
+    "cardCount": "{count} 张卡",
+    "breadcrumb": "当前位置",
+    "breadcrumbLibrary": "卡片库",
+    "groupEmptyTitle": "这个组还没有卡片",
+    "groupEmptyBody": "创建一张卡片。正面写定义，背面再收资源。",
+    "createCard": "新建卡片",
+    "allTitle": "全部卡片",
+    "allLead": "每一张卡都属于一个组。",
+    "owner": "{category} · {group}",
+    "owningGroup": "{category}/{group}",
+    "noGroupTitle": "还没有组",
+    "noGroupBody": "先回到卡片库新建分类和组，再创建卡片。",
+    "noGroupAction": "去卡片库",
+    "allEmptyTitle": "还没有卡片",
+    "allEmptyBody": "选一个组，写下标题和释义。",
+    "nameCategoryTitle": "新建分类",
+    "renameCategoryTitle": "重命名分类",
+    "nameGroupTitle": "新建组",
+    "renameGroupTitle": "重命名组",
+    "nameLabel": "名称",
+    "save": "保存",
+    "saving": "保存中…",
+    "cancel": "取消",
+    "close": "关闭",
+    "current": "当前",
+    "copyTo": "复制到…",
+    "moveTo": "移动到…",
+    "copyTitle": "复制到",
+    "moveTitle": "移动到",
+    "copySubmit": "复制",
+    "moveSubmit": "移动",
+    "noOtherGroupTitle": "没有可选择的其他组",
+    "noOtherGroupBody": "再建一个组，才能把卡片复制或移动过去。",
+    "goCreateGroup": "去新建组",
+    "copied": "已复制到目标组。",
+    "openCopy": "打开副本",
+    "deleteCategoryTitle": "删除分类",
+    "deleteGroupTitle": "删除组",
+    "deleteCardTitle": "删除卡片",
+    "deleteEmptyCategory": "删除分类「{title}」。此操作不可撤销。",
+    "deleteEmptyGroup": "删除组「{title}」。此操作不可撤销。",
+    "deleteCardBody": "删除卡片「{title}」。此操作不可撤销。",
+    "deleteCategoryCascade": "删除分类「{title}」。将同时删除 {groups} 个组、{cards} 张卡，不可撤销。",
+    "deleteGroupCascade": "删除组「{title}」。将同时删除 {cards} 张卡，不可撤销。",
+    "confirmDelete": "删除",
+    "manageCard": "管理这张卡"
   },
   "studio": {
     "frontKicker": "知识点",
@@ -96,12 +157,15 @@
       "not_found": "找不到这张卡或这条资源。",
       "invalid_category": "类别无效。",
       "too_long": "内容太长了。",
+      "same_group": "不能选择当前组。",
+      "duplicate_title": "这个名称已经有了。",
+      "reserved_id": "这个标识不能使用。",
       "unknown": "没有保存成功，请再试一次。"
     }
   },
   "notFound": {
     "title": "没有这一页",
     "body": "这张卡可能被拿走了，或者地址写错了。",
-    "back": "回到卡片列表"
+    "back": "回到卡片库"
   }
 }

@@ -14,7 +14,9 @@ pnpm dev
 不需要环境变量。`pnpm lint` 和 `pnpm build` 在空 env 下即可通过。
 
 - 首页 `/zh-Hans`：一句话，进入示例卡
-- 列表 `/zh-Hans/cards`
+- 卡片库 `/zh-Hans/cards`：分类和组
+- 组 `/zh-Hans/groups/[groupId]`
+- 全部卡片 `/zh-Hans/cards/all`
 - 工作室 `/zh-Hans/cards/[id]`
 
 英文把路径里的 `zh-Hans` 换成 `en`。访问 `/` 会按语言协商跳到对应前缀，默认 `zh-Hans`。
@@ -29,18 +31,16 @@ pnpm dev
 
 ## 数据
 
-`data/cards.json` 是读写的那一份。Server Actions：
+`data/cards.json` 是 StoreV2：`{ version: 2, categories, groups, cards }`。读到旧的卡片数组时，启动时会迁成 v2。一张卡只属于一个组，组不嵌套。Server Actions：
 
-- `listCards`
-- `getCard`
-- `createCard`
-- `updateCardFront`
-- `addResource`
-- `updateResource`
-- `deleteResource`
+- `listCards` / `getCard` / `createCard` / `updateCardFront` / `deleteCard` / `copyCard` / `moveCard`
+- `listCategories` / `getCategory` / `createCategory` / `updateCategory` / `deleteCategory`
+- `listGroups` / `getGroup` / `createGroup` / `updateGroup` / `deleteGroup`
+- `listCardsByGroup`
+- `addResource` / `updateResource` / `deleteResource`
 
-种子卡「光合作用」六类资源各有一条可打开的 https 样例。
+种子卡「光合作用」在「生物学 / 植物生理」，六类资源各有一条可打开的 https 样例。「化学 / 无机入门」是空组，用来试复制和移动。卡片 id 不能是 `all`。
 
 ## 这一轮不做
 
-文件上传、Neon、Clerk、版本历史、目录、AI、生产部署。
+文件上传、Neon、Clerk、版本历史、AI、生产部署。

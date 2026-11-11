@@ -1,11 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { deleteCard } from "@/actions/cards";
+import type { GroupOption } from "@/lib/library-view";
 import type { Card, Resource, ResourceCategory } from "@/lib/types";
 import { REDUCED_MS, flipFrame } from "@/lib/flip-motion";
+import { Link } from "@/i18n/navigation";
 import { CardBack } from "./card-back";
 import { CardFront } from "./card-front";
+import { ConfirmDeleteDialog } from "./confirm-delete-dialog";
+import { CopyMoveDialog } from "./copy-move-dialog";
 import { DeleteDialog } from "./delete-dialog";
 import { FrontDialog } from "./front-dialog";
 import { ResourceDialog } from "./resource-dialog";
@@ -15,10 +20,21 @@ type DialogState =
   | { type: "front" }
   | { type: "edit"; resource: Resource }
   | { type: "delete"; resource: Resource }
+  | { type: "copy" }
+  | { type: "move" }
+  | { type: "delete-card" }
   | null;
+
+type StudioOwner = {
+  groupId: string;
+  categoryTitle: string;
+  groupTitle: string;
+};
 
 type CardStudioProps = {
   card: Card;
+  owner: StudioOwner;
+  groups: GroupOption[];
 };
 
 function prefersReducedMotion() {
@@ -31,8 +47,10 @@ function isTypingTarget(target: EventTarget | null) {
   return Boolean(target.closest("input, textarea, select, button, a, [role='dialog']"));
 }
 
-export function CardStudio({ card }: CardStudioProps) {
+export function CardStudio({ card, owner, groups }: CardStudioProps) {
   const t = useTranslations("studio");
+  const library = useTranslations("library");
+  const locale = useLocale();
   const [flipped, setFlipped] = useState(false);
   const [busy, setBusy] = useState(false);
   const [category, setCategory] = useState<ResourceCategory>("image");
@@ -171,6 +189,33 @@ export function CardStudio({ card }: CardStudioProps) {
       <p className="sr-only" aria-live="polite">
         {flipped ? t("faceBack") : t("faceFront")}
       </p>
+      <div className="px-6">
+        <div className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-3">
+          <Link
+            href={`/groups/${owner.groupId}`}
+            prefetch={false}
+            className="inline-flex h-11 items-center text-sm text-pine"
+          >
+            {library("owningGroup", { category: owner.categoryTitle, group: owner.groupTitle })}
+          </Link>
+          <div role="group" aria-label={library("manageCard")} className="flex flex-wrap gap-2">
+            <button type="button" className="quiet-chip" onClick={() => openDialog({ type: "copy" })}>
+              {library("copyTo")}
+            </button>
+            <button type="button" className="quiet-chip" onClick={() => openDialog({ type: "move" })}>
+              {library("moveTo")}
+            </button>
+            <button
+              type="button"
+              className="quiet-chip"
+              aria-label={library("deleteCardTitle")}
+              onClick={() => openDialog({ type: "delete-card" })}
+            >
+              {library("delete")}
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="flip-scene" data-busy={busy ? "true" : "false"}>
         <div className="specimen-stage relative mx-auto aspect-[4/3] w-full max-w-3xl max-md:min-h-[26rem]">
           <div ref={shadowRef} className="flip-shadow" aria-hidden />
@@ -223,6 +268,26 @@ export function CardStudio({ card }: CardStudioProps) {
           key={dialogKey}
           cardId={card.id}
           resource={dialog.resource}
+          onClose={() => closeDialog()}
+        />
+      ) : null}
+      {dialog?.type === "copy" || dialog?.type === "move" ? (
+        <CopyMoveDialog
+          key={dialogKey}
+          mode={dialog.type}
+          cardId={card.id}
+          sourceGroupId={owner.groupId}
+          groups={groups}
+          onClose={() => closeDialog()}
+        />
+      ) : null}
+      {dialog?.type === "delete-card" ? (
+        <ConfirmDeleteDialog
+          key={dialogKey}
+          title={library("deleteCardTitle")}
+          body={library("deleteCardBody", { title: card.title })}
+          action={deleteCard}
+          hidden={{ cardId: card.id, from: "studio", locale }}
           onClose={() => closeDialog()}
         />
       ) : null}

@@ -21,10 +21,11 @@ export function Dialog({ title, closeLabel, onClose, children }: DialogProps) {
   useEffect(() => {
     const previouslyFocused = document.activeElement;
     const panel = panelRef.current;
+    const preferred = panel?.querySelector<HTMLElement>("[data-initial-focus]");
     const field = panel?.querySelector<HTMLElement>(
-      "input:not([type='hidden']), textarea, select",
+      "input:not([type='hidden']):not(:disabled), textarea, select:not(:disabled)",
     );
-    (field ?? panel?.querySelector<HTMLElement>("button"))?.focus();
+    (preferred ?? field ?? panel?.querySelector<HTMLElement>("button:not(:disabled)"))?.focus();
 
     function onKey(event: KeyboardEvent) {
       if (event.key !== "Escape") return;
@@ -62,7 +63,7 @@ export function Dialog({ title, closeLabel, onClose, children }: DialogProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full px-2 py-1 text-sm text-muted"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full px-3 text-sm text-muted"
           >
             {closeLabel}
           </button>

@@ -20,10 +20,33 @@ export type Resource = {
 
 export type Card = {
   id: string;
+  groupId: string;
   title: string;
   definition: string;
   resources: Resource[];
 };
+
+export type Category = {
+  id: string;
+  title: string;
+  sortOrder: number;
+};
+
+export type Group = {
+  id: string;
+  categoryId: string;
+  title: string;
+  sortOrder: number;
+};
+
+export type StoreV2 = {
+  version: 2;
+  categories: Category[];
+  groups: Group[];
+  cards: Card[];
+};
+
+export const RESERVED_CARD_ID = "all";
 
 export type StoreError =
   | "https_only"
@@ -32,7 +55,10 @@ export type StoreError =
   | "missing_definition"
   | "not_found"
   | "invalid_category"
-  | "too_long";
+  | "too_long"
+  | "same_group"
+  | "duplicate_title"
+  | "reserved_id";
 
 export type StoreResult<T> =
   | { ok: true; data: T }
