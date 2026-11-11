@@ -3,8 +3,8 @@ import "server-only";
 import { cacheTag } from "next/cache";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { parseCards } from "./cards-store";
-import type { Card, StoreResult } from "./types";
+import { parseStore, serializeStore } from "./cards-store";
+import type { Card, StoreResult, StoreV2 } from "./types";
 
 const dataPath = path.join(process.cwd(), "data", "cards.json");
 
@@ -19,25 +19,42 @@ function enqueue<T>(task: () => Promise<T>): Promise<T> {
   return run;
 }
 
-export async function readCardsFromDisk(): Promise<Card[]> {
+export async function readStoreFromDisk(): Promise<StoreV2> {
   const raw = await readFile(dataPath, "utf8");
-  return parseCards(JSON.parse(raw) as unknown);
+  const parsed = JSON.parse(raw) as unknown;
+  const store = parseStore(parsed);
+  if (Array.isArray(parsed)) {
+    await writeFile(dataPath, serializeStore(store), "utf8");
+  }
+  return store;
+}
+
+export async function readCardsFromDisk(): Promise<Card[]> {
+  const store = await readStoreFromDisk();
+  return store.cards;
+}
+
+export async function listStoreCached(): Promise<StoreV2> {
+  "use cache";
+  cacheTag("cards");
+  return readStoreFromDisk();
 }
 
 export async function listCardsCached(): Promise<Card[]> {
-  "use cache";
-  cacheTag("cards");
-  return readCardsFromDisk();
+  const store = await listStoreCached();
+  return store.cards;
 }
 
-export async function mutateCards(
-  mutator: (cards: Card[]) => StoreResult<{ cards: Card[]; card: Card }>,
-): Promise<StoreResult<Card>> {
+export async function mutateStore<T extends { store: StoreV2 }>(
+  mutator: (store: StoreV2) => StoreResult<T>,
+): Promise<StoreResult<Omit<T, "store">>> {
   return enqueue(async () => {
-    const current = await readCardsFromDisk();
+    const current = await readStoreFromDisk();
     const result = mutator(current);
     if (!result.ok) return result;
-    await writeFile(dataPath, `${JSON.stringify(result.data.cards, null, 2)}\n`, "utf8");
-    return { ok: true, data: result.data.card };
+    await writeFile(dataPath, serializeStore(result.data.store), "utf8");
+    const { store, ...rest } = result.data;
+    void store;
+    return { ok: true, data: rest };
   });
 }

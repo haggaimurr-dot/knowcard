@@ -5,7 +5,7 @@
   },
   "nav": {
     "brand": "knowcard",
-    "cards": "Cards",
+    "cards": "Library",
     "skip": "Skip to content"
   },
   "locale": {
@@ -18,7 +18,7 @@
     "title": "Turn a knowledge point over.",
     "lead": "The front holds the definition. The back gathers images, video, blogs, documents, audio, and files.",
     "openSample": "Open sample: {title}",
-    "browse": "Browse cards"
+    "browse": "Open the library"
   },
   "list": {
     "title": "Cards",
@@ -31,7 +31,68 @@
     "titleLabel": "Title",
     "definitionLabel": "Definition",
     "createSubmit": "Create",
-    "saving": "Saving…"
+    "saving": "Saving…",
+    "groupLabel": "Group",
+    "chooseGroup": "Choose a group"
+  },
+  "library": {
+    "title": "Library",
+    "lead": "Categories hold groups. Groups hold cards.",
+    "createCategory": "New category",
+    "allCards": "All cards",
+    "createGroup": "New group",
+    "more": "More",
+    "rename": "Rename",
+    "delete": "Delete",
+    "emptyTitle": "No categories yet",
+    "emptyBody": "Create a category, then add a group inside it.",
+    "categoryCount": "{groups, plural, one {# group} other {# groups}} · {cards, plural, one {# card} other {# cards}}",
+    "cardCount": "{count, plural, one {# card} other {# cards}}",
+    "breadcrumb": "Breadcrumb",
+    "breadcrumbLibrary": "Library",
+    "groupEmptyTitle": "No cards in this group",
+    "groupEmptyBody": "Create a card. The front holds the definition. Resources go on the back.",
+    "createCard": "New card",
+    "allTitle": "All cards",
+    "allLead": "Every card belongs to one group.",
+    "owner": "{category} · {group}",
+    "owningGroup": "{category}/{group}",
+    "noGroupTitle": "No groups yet",
+    "noGroupBody": "Go back to the library and create a category and a group before adding a card.",
+    "noGroupAction": "Go to the library",
+    "allEmptyTitle": "No cards yet",
+    "allEmptyBody": "Choose a group, then add a title and a definition.",
+    "nameCategoryTitle": "New category",
+    "renameCategoryTitle": "Rename category",
+    "nameGroupTitle": "New group",
+    "renameGroupTitle": "Rename group",
+    "nameLabel": "Name",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "close": "Close",
+    "current": "Current",
+    "copyTo": "Copy to…",
+    "moveTo": "Move to…",
+    "copyTitle": "Copy to",
+    "moveTitle": "Move to",
+    "copySubmit": "Copy",
+    "moveSubmit": "Move",
+    "noOtherGroupTitle": "No other group to choose",
+    "noOtherGroupBody": "Create another group before copying or moving a card.",
+    "goCreateGroup": "Create a group",
+    "copied": "Copied into the selected group.",
+    "openCopy": "Open copy",
+    "deleteCategoryTitle": "Delete category",
+    "deleteGroupTitle": "Delete group",
+    "deleteCardTitle": "Delete card",
+    "deleteEmptyCategory": "Delete the category “{title}”. This cannot be undone.",
+    "deleteEmptyGroup": "Delete the group “{title}”. This cannot be undone.",
+    "deleteCardBody": "Delete the card “{title}”. This cannot be undone.",
+    "deleteCategoryCascade": "Delete “{title}”. This will also delete {groups, plural, one {# group} other {# groups}} and {cards, plural, one {# card} other {# cards}}. This cannot be undone.",
+    "deleteGroupCascade": "Delete “{title}”. This will also delete {cards, plural, one {# card} other {# cards}}. This cannot be undone.",
+    "confirmDelete": "Delete",
+    "manageCard": "Manage this card"
   },
   "studio": {
     "frontKicker": "Knowledge point",
@@ -96,12 +157,15 @@
       "not_found": "That card or resource could not be found.",
       "invalid_category": "That category is not valid.",
       "too_long": "That is too long.",
+      "same_group": "Choose a different group.",
+      "duplicate_title": "That name is already used.",
+      "reserved_id": "That id cannot be used.",
       "unknown": "Could not save. Try again."
     }
   },
   "notFound": {
     "title": "Page not found",
     "body": "This card may be gone, or the address is wrong.",
-    "back": "Back to cards"
+    "back": "Back to the library"
   }
 }

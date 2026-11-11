@@ -18,7 +18,7 @@ export async function SiteHeader() {
           {t("brand")}
         </Link>
         <nav className="flex items-center gap-5 text-sm">
-          <Link href="/cards" prefetch={false} className="text-ink/80 hover:text-ink">
+          <Link href="/cards" prefetch={false} className="inline-flex h-11 items-center text-ink/80 hover:text-ink">
             {t("cards")}
           </Link>
           <LocaleSwitcher />
